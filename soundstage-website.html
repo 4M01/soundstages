@@ -738,7 +738,8 @@
                             <div class="contact-icon">✉️</div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <p><a href="mailto:ajith+1203@showrunnr.com">ajith+1203@showrunnr.com</a></p>
+                                <p><a href="mailto:bookings@soundstagepro.com"
+                                        id="contact-email">bookings@soundstagepro.com</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -755,12 +756,13 @@
                         <div class="contact-text">
                             <h4>24/7 Support Line</h4>
                             <p>(555) 987-6543</p>
-                            <p><a href="mailto:support@soundstagepro.com">support@soundstagepro.com</a></p>
+                            <p><a href="mailto:support@soundstagepro.com"
+                                    id="support-email">support@soundstagepro.com</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Your Name" required>
                         </div>
@@ -822,15 +824,919 @@
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Your Email" required>
                         </div>
-                        <button type="submit" class="submit-btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 SoundStagePro. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-</body>
+                        <!DOCTYPE html>
+                        <html lang="en">
 
-</html>
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>SoundStage Pro - Premier Soundstage Supplier</title>
+                            <style>
+                                :root {
+                                    --primary: #1a2238;
+                                    --secondary: #9daaf2;
+                                    --accent: #ff6a3d;
+                                    --light: #f4f7f5;
+                                    --dark: #222831;
+                                }
+
+                                * {
+                                    margin: 0;
+                                    padding: 0;
+                                    box-sizing: border-box;
+                                }
+
+                                body {
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                    line-height: 1.6;
+                                    color: var(--dark);
+                                    background-color: var(--light);
+                                }
+
+                                .container {
+                                    width: 90%;
+                                    max-width: 1200px;
+                                    margin: 0 auto;
+                                }
+
+                                /* Header */
+                                header {
+                                    background-color: var(--primary);
+                                    color: white;
+                                    padding: 1rem 0;
+                                    position: sticky;
+                                    top: 0;
+                                    z-index: 100;
+                                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                                }
+
+                                nav {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                }
+
+                                .logo {
+                                    font-size: 1.8rem;
+                                    font-weight: 700;
+                                }
+
+                                .logo span {
+                                    color: var(--accent);
+                                }
+
+                                .nav-links {
+                                    display: flex;
+                                    list-style: none;
+                                }
+
+                                .nav-links li {
+                                    margin-left: 2rem;
+                                }
+
+                                .nav-links a {
+                                    color: white;
+                                    text-decoration: none;
+                                    font-weight: 500;
+                                    transition: color 0.3s;
+                                }
+
+                                .nav-links a:hover {
+                                    color: var(--accent);
+                                }
+
+                                /* Hero Section */
+                                .hero {
+                                    height: 80vh;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    text-align: center;
+                                    color: white;
+                                    padding: 0 1rem;
+                                }
+
+                                .hero h1 {
+                                    font-size: 3.5rem;
+                                    margin-bottom: 1rem;
+                                    line-height: 1.2;
+                                }
+
+                                .hero p {
+                                    font-size: 1.2rem;
+                                    max-width: 700px;
+                                    margin-bottom: 2rem;
+                                }
+
+                                .cta-btn {
+                                    display: inline-block;
+                                    background-color: var(--accent);
+                                    color: white;
+                                    padding: 0.8rem 2rem;
+                                    border-radius: 50px;
+                                    text-decoration: none;
+                                    font-weight: 600;
+                                    text-transform: uppercase;
+                                    letter-spacing: 1px;
+                                    transition: transform 0.3s, background-color 0.3s;
+                                }
+
+                                .cta-btn:hover {
+                                    transform: translateY(-3px);
+                                    background-color: #ff8257;
+                                }
+
+                                /* Features Section */
+                                .features {
+                                    padding: 5rem 0;
+                                }
+
+                                .section-title {
+                                    text-align: center;
+                                    margin-bottom: 3rem;
+                                }
+
+                                .section-title h2 {
+                                    font-size: 2.5rem;
+                                    color: var(--primary);
+                                    margin-bottom: 1rem;
+                                }
+
+                                .section-title p {
+                                    max-width: 600px;
+                                    margin: 0 auto;
+                                    color: #666;
+                                }
+
+                                .features-grid {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                                    gap: 2rem;
+                                }
+
+                                .feature-card {
+                                    background: white;
+                                    padding: 2rem;
+                                    border-radius: 10px;
+                                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                                    transition: transform 0.3s;
+                                }
+
+                                .feature-card:hover {
+                                    transform: translateY(-10px);
+                                }
+
+                                .feature-icon {
+                                    font-size: 2.5rem;
+                                    color: var(--accent);
+                                    margin-bottom: 1.5rem;
+                                }
+
+                                .feature-card h3 {
+                                    font-size: 1.5rem;
+                                    margin-bottom: 1rem;
+                                    color: var(--primary);
+                                }
+
+                                /* Soundstages Section */
+                                .soundstages {
+                                    background-color: #f9f9f9;
+                                    padding: 5rem 0;
+                                }
+
+                                .soundstages-grid {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                                    gap: 2rem;
+                                }
+
+                                .soundstage-card {
+                                    background: white;
+                                    border-radius: 10px;
+                                    overflow: hidden;
+                                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                                    transition: transform 0.3s;
+                                }
+
+                                .soundstage-card:hover {
+                                    transform: translateY(-10px);
+                                }
+
+                                .soundstage-img {
+                                    height: 200px;
+                                    width: 100%;
+                                    object-fit: cover;
+                                }
+
+                                .soundstage-content {
+                                    padding: 1.5rem;
+                                }
+
+                                .soundstage-content h3 {
+                                    font-size: 1.5rem;
+                                    margin-bottom: 0.5rem;
+                                    color: var(--primary);
+                                }
+
+                                .soundstage-content p {
+                                    margin-bottom: 1rem;
+                                    color: #666;
+                                }
+
+                                .soundstage-features {
+                                    margin-top: 1rem;
+                                }
+
+                                .soundstage-features li {
+                                    margin-bottom: 0.5rem;
+                                    list-style: none;
+                                }
+
+                                .soundstage-features li:before {
+                                    content: "✓";
+                                    color: var(--accent);
+                                    margin-right: 0.5rem;
+                                    font-weight: bold;
+                                }
+
+                                /* Clients Section */
+                                .clients {
+                                    padding: 5rem 0;
+                                }
+
+                                .clients-grid {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                                    gap: 2rem;
+                                    justify-items: center;
+                                    align-items: center;
+                                }
+
+                                .client-logo {
+                                    height: 80px;
+                                    filter: grayscale(100%);
+                                    transition: filter 0.3s, transform 0.3s;
+                                }
+
+                                .client-logo:hover {
+                                    filter: grayscale(0%);
+                                    transform: scale(1.1);
+                                }
+
+                                /* Testimonials Section */
+                                .testimonials {
+                                    background-color: var(--primary);
+                                    color: white;
+                                    padding: 5rem 0;
+                                }
+
+                                .testimonials .section-title h2 {
+                                    color: white;
+                                }
+
+                                .testimonials .section-title p {
+                                    color: #ccc;
+                                }
+
+                                .testimonial-card {
+                                    background: rgba(255, 255, 255, 0.1);
+                                    padding: 2rem;
+                                    border-radius: 10px;
+                                    position: relative;
+                                }
+
+                                .testimonial-text {
+                                    font-style: italic;
+                                    margin-bottom: 1.5rem;
+                                    font-size: 1.1rem;
+                                }
+
+                                .testimonial-author {
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                .author-img {
+                                    width: 60px;
+                                    height: 60px;
+                                    border-radius: 50%;
+                                    margin-right: 1rem;
+                                }
+
+                                .author-info h4 {
+                                    font-size: 1.1rem;
+                                    margin-bottom: 0.2rem;
+                                }
+
+                                .author-info p {
+                                    font-size: 0.9rem;
+                                    color: #ccc;
+                                }
+
+                                /* Contact Section */
+                                .contact {
+                                    padding: 5rem 0;
+                                }
+
+                                .contact-container {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                                    gap: 3rem;
+                                }
+
+                                .contact-info h3 {
+                                    font-size: 1.8rem;
+                                    color: var(--primary);
+                                    margin-bottom: 1.5rem;
+                                }
+
+                                .contact-details {
+                                    margin-bottom: 2rem;
+                                }
+
+                                .contact-item {
+                                    display: flex;
+                                    align-items: flex-start;
+                                    margin-bottom: 1rem;
+                                }
+
+                                .contact-icon {
+                                    color: var(--accent);
+                                    font-size: 1.5rem;
+                                    margin-right: 1rem;
+                                }
+
+                                .contact-text h4 {
+                                    font-size: 1.1rem;
+                                    margin-bottom: 0.2rem;
+                                }
+
+                                .contact-text p,
+                                .contact-text a {
+                                    color: #666;
+                                    text-decoration: none;
+                                    transition: color 0.3s;
+                                }
+
+                                .contact-text a:hover {
+                                    color: var(--accent);
+                                }
+
+                                .contact-form {
+                                    background: white;
+                                    padding: 2rem;
+                                    border-radius: 10px;
+                                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                                }
+
+                                .form-group {
+                                    margin-bottom: 1.5rem;
+                                }
+
+                                .form-control {
+                                    width: 100%;
+                                    padding: 1rem;
+                                    border: 1px solid #ddd;
+                                    border-radius: 5px;
+                                    font-family: inherit;
+                                    font-size: 1rem;
+                                    transition: border-color 0.3s;
+                                }
+
+                                .form-control:focus {
+                                    outline: none;
+                                    border-color: var(--accent);
+                                }
+
+                                textarea.form-control {
+                                    resize: vertical;
+                                    min-height: 150px;
+                                }
+
+                                .submit-btn {
+                                    background-color: var(--accent);
+                                    color: white;
+                                    border: none;
+                                    padding: 1rem 2rem;
+                                    border-radius: 50px;
+                                    font-weight: 600;
+                                    text-transform: uppercase;
+                                    letter-spacing: 1px;
+                                    cursor: pointer;
+                                    transition: background-color 0.3s;
+                                }
+
+                                .submit-btn:hover {
+                                    background-color: #ff8257;
+                                }
+
+                                /* Footer */
+                                footer {
+                                    background-color: var(--dark);
+                                    color: white;
+                                    padding: 3rem 0 1rem;
+                                }
+
+                                .footer-container {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                                    gap: 3rem;
+                                    margin-bottom: 3rem;
+                                }
+
+                                .footer-col h3 {
+                                    font-size: 1.5rem;
+                                    margin-bottom: 1.5rem;
+                                    position: relative;
+                                    padding-bottom: 0.5rem;
+                                }
+
+                                .footer-col h3:after {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: 0;
+                                    width: 50px;
+                                    height: 2px;
+                                    background-color: var(--accent);
+                                }
+
+                                .footer-links {
+                                    list-style: none;
+                                }
+
+                                .footer-links li {
+                                    margin-bottom: 0.8rem;
+                                }
+
+                                .footer-links a {
+                                    color: #ccc;
+                                    text-decoration: none;
+                                    transition: color 0.3s;
+                                }
+
+                                .footer-links a:hover {
+                                    color: var(--accent);
+                                }
+
+                                .footer-social {
+                                    display: flex;
+                                    gap: 1rem;
+                                    margin-top: 1.5rem;
+                                }
+
+                                .social-icon {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 40px;
+                                    height: 40px;
+                                    background-color: rgba(255, 255, 255, 0.1);
+                                    color: white;
+                                    border-radius: 50%;
+                                    transition: background-color 0.3s, transform 0.3s;
+                                }
+
+                                .social-icon:hover {
+                                    background-color: var(--accent);
+                                    transform: translateY(-3px);
+                                }
+
+                                .copyright {
+                                    text-align: center;
+                                    padding-top: 2rem;
+                                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                                    color: #999;
+                                    font-size: 0.9rem;
+                                }
+
+                                /* Responsive */
+                                @media (max-width: 768px) {
+                                    .hero h1 {
+                                        font-size: 2.5rem;
+                                    }
+
+                                    .nav-links {
+                                        display: none;
+                                    }
+
+                                    .mobile-menu-btn {
+                                        display: block;
+                                        background: none;
+                                        border: none;
+                                        color: white;
+                                        font-size: 1.5rem;
+                                        cursor: pointer;
+                                    }
+                                }
+                            </style>
+                        </head>
+
+                        <body>
+                            <!-- Header -->
+                            <header>
+                                <div class="container">
+                                    <nav>
+                                        <div class="logo">Sound<span>Stage</span>Pro</div>
+                                        <ul class="nav-links">
+                                            <li><a href="#home">Home</a></li>
+                                            <li><a href="#features">Features</a></li>
+                                            <li><a href="#soundstages">Our Soundstages</a></li>
+                                            <li><a href="#clients">Clients</a></li>
+                                            <li><a href="#contact">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </header>
+
+                            <!-- Hero Section -->
+                            <section class="hero" id="home"
+                                style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1611244419377-b0a760c19191?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+                                <h1>Premier Soundstages for Professional Productions</h1>
+                                <p>Industry-leading soundstages with cutting-edge technology, versatile spaces, and
+                                    exceptional service for film, television, and commercial productions.</p>
+                                <a href="#contact" class="cta-btn">Book Your Soundstage</a>
+                            </section>
+
+                            <!-- Features Section -->
+                            <section class="features" id="features">
+                                <div class="container">
+                                    <div class="section-title">
+                                        <h2>Why Choose SoundStagePro?</h2>
+                                        <p>We provide premium soundstage facilities with industry-leading technology and
+                                            support for productions of all sizes.</p>
+                                    </div>
+                                    <div class="features-grid">
+                                        <div class="feature-card">
+                                            <div class="feature-icon">🎬</div>
+                                            <h3>State-of-the-Art Technology</h3>
+                                            <p>Our soundstages are equipped with the latest acoustics, lighting, and
+                                                production technology to ensure your vision comes to life exactly as
+                                                planned.</p>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">🔊</div>
+                                            <h3>Superior Sound Control</h3>
+                                            <p>Industry-leading sound isolation and acoustic treatments that create the
+                                                perfect recording environment for any production requirement.</p>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">📏</div>
+                                            <h3>Versatile Spaces</h3>
+                                            <p>From intimate indie productions to blockbuster films, our various stage
+                                                sizes and configurations can accommodate any project.</p>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">👥</div>
+                                            <h3>Expert Support Team</h3>
+                                            <p>Our experienced technical staff and production assistants are available
+                                                24/7 to ensure your production runs smoothly.</p>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">🚗</div>
+                                            <h3>Prime Location</h3>
+                                            <p>Conveniently located with easy access to major transportation routes and
+                                                accommodation options for your cast and crew.</p>
+                                        </div>
+                                        <div class="feature-card">
+                                            <div class="feature-icon">⚡</div>
+                                            <h3>Comprehensive Facilities</h3>
+                                            <p>From green rooms to production offices, catering services to equipment
+                                                rental - everything you need under one roof.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Soundstages Section -->
+                            <section class="soundstages" id="soundstages">
+                                <div class="container">
+                                    <div class="section-title">
+                                        <h2>Our Soundstages</h2>
+                                        <p>Explore our range of premium soundstages designed to meet any production
+                                            requirement.</p>
+                                    </div>
+                                    <div class="soundstages-grid">
+                                        <div class="soundstage-card">
+                                            <img src="https://images.unsplash.com/photo-1540310320584-63f15c62a3ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                                alt="Soundstage Alpha" class="soundstage-img">
+                                            <div class="soundstage-content">
+                                                <h3>Soundstage Alpha</h3>
+                                                <p>Our flagship stage with 20,000 sq ft of versatile space and 40ft
+                                                    clear height.</p>
+                                                <ul class="soundstage-features">
+                                                    <li>20,000 sq ft space</li>
+                                                    <li>40ft clear height</li>
+                                                    <li>200 amp power service</li>
+                                                    <li>Full cyclorama</li>
+                                                    <li>Advanced lighting grid</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="soundstage-card">
+                                            <img src="https://images.unsplash.com/photo-1525971977907-4ca3d7c5b49a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                                alt="Soundstage Beta" class="soundstage-img">
+                                            <div class="soundstage-content">
+                                                <h3>Soundstage Beta</h3>
+                                                <p>Medium-sized 12,000 sq ft stage perfect for television productions
+                                                    and commercials.</p>
+                                                <ul class="soundstage-features">
+                                                    <li>12,000 sq ft space</li>
+                                                    <li>35ft clear height</li>
+                                                    <li>150 amp power service</li>
+                                                    <li>Green screen capability</li>
+                                                    <li>Motorized lighting system</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="soundstage-card">
+                                            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                                alt="Soundstage Delta" class="soundstage-img">
+                                            <div class="soundstage-content">
+                                                <h3>Soundstage Delta</h3>
+                                                <p>Compact 5,000 sq ft stage ideal for interviews, small setups, and
+                                                    indie productions.</p>
+                                                <ul class="soundstage-features">
+                                                    <li>5,000 sq ft space</li>
+                                                    <li>25ft clear height</li>
+                                                    <li>100 amp power service</li>
+                                                    <li>Pre-lit setup available</li>
+                                                    <li>Ultra-quiet HVAC system</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Clients Section -->
+                            <section class="clients" id="clients">
+                                <div class="container">
+                                    <div class="section-title">
+                                        <h2>Our Clients</h2>
+                                        <p>We're proud to work with leading studios and production companies from around
+                                            the world.</p>
+                                    </div>
+                                    <div class="clients-grid">
+                                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100&q=80"
+                                            alt="Client Logo - Universal Studios" class="client-logo">
+                                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100&q=80"
+                                            alt="Client Logo - Paramount" class="client-logo">
+                                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100&q=80"
+                                            alt="Client Logo - Warner Bros" class="client-logo">
+                                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100&q=80"
+                                            alt="Client Logo - Netflix" class="client-logo">
+                                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100&q=80"
+                                            alt="Client Logo - Disney" class="client-logo">
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Testimonials Section -->
+                            <section class="testimonials">
+                                <div class="container">
+                                    <div class="section-title">
+                                        <h2>What Our Clients Say</h2>
+                                        <p>Don't just take our word for it - hear from the productions that have used
+                                            our facilities.</p>
+                                    </div>
+                                    <div class="features-grid">
+                                        <div class="testimonial-card">
+                                            <p class="testimonial-text">"SoundStagePro provided the perfect environment
+                                                for our feature film. The technical support was outstanding and the
+                                                facilities exceeded our expectations."</p>
+                                            <div class="testimonial-author">
+                                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&h=60&q=80"
+                                                    alt="Author" class="author-img">
+                                                <div class="author-info">
+                                                    <h4>Sarah Johnson</h4>
+                                                    <p>Executive Producer, Horizon Pictures</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-card">
+                                            <p class="testimonial-text">"We've filmed three seasons of our series at
+                                                SoundStagePro and wouldn't go anywhere else. The team understands our
+                                                needs and delivers every time."</p>
+                                            <div class="testimonial-author">
+                                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&h=60&q=80"
+                                                    alt="Author" class="author-img">
+                                                <div class="author-info">
+                                                    <h4>Michael Chen</h4>
+                                                    <p>Production Manager, Global Television</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-card">
+                                            <p class="testimonial-text">"The acoustic quality of these soundstages is
+                                                unmatched. We were able to capture pristine audio for our musical
+                                                sequences without any issues."</p>
+                                            <div class="testimonial-author">
+                                                <img src="https://images.unsplash.com/photo-1567515004624-219c11d31f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&h=60&q=80"
+                                                    alt="Author" class="author-img">
+                                                <div class="author-info">
+                                                    <h4>David Rodriguez</h4>
+                                                    <p>Sound Director, Melody Studios</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Contact Section -->
+                            <section class="contact" id="contact">
+                                <div class="container">
+                                    <div class="section-title">
+                                        <h2>Get In Touch</h2>
+                                        <p>Ready to book a soundstage or have questions? Contact us today.</p>
+                                    </div>
+                                    <div class="contact-container">
+                                        <div class="contact-info">
+                                            <h3>Contact Information</h3>
+                                            <div class="contact-details">
+                                                <div class="contact-item">
+                                                    <div class="contact-icon">📍</div>
+                                                    <div class="contact-text">
+                                                        <h4>Address</h4>
+                                                        <p>1234 Production Blvd, Studio City, CA 91604</p>
+                                                    </div>
+                                                </div>
+                                                <div class="contact-item">
+                                                    <div class="contact-icon">📞</div>
+                                                    <div class="contact-text">
+                                                        <h4>Phone</h4>
+                                                        <p>(555) 123-4567</p>
+                                                    </div>
+                                                </div>
+                                                <div class="contact-item">
+                                                    <div class="contact-icon">✉️</div>
+                                                    <div class="contact-text">
+                                                        <h4>Email</h4>
+                                                        <p><a
+                                                                href="mailto:bookings@soundstagepro.com">bookings@soundstagepro.com</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="contact-item">
+                                                    <div class="contact-icon">⏰</div>
+                                                    <div class="contact-text">
+                                                        <h4>Office Hours</h4>
+                                                        <p>Monday - Friday: 8am - 8pm<br>Saturday: 9am - 5pm<br>Sunday:
+                                                            Closed</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h3>Emergency Production Support</h3>
+                                            <div class="contact-item">
+                                                <div class="contact-icon">🚨</div>
+                                                <div class="contact-text">
+                                                    <h4>24/7 Support Line</h4>
+                                                    <p>(555) 987-6543</p>
+                                                    <p><a
+                                                            href="mailto:support@soundstagepro.com">support@soundstagepro.com</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="contact-form">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Your Name"
+                                                        required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" placeholder="Your Email"
+                                                        required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Subject">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" placeholder="Your Message"
+                                                        required></textarea>
+                                                </div>
+                                                <button type="submit" class="submit-btn">Send Message</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Footer -->
+                            <footer>
+                                <div class="container">
+                                    <div class="footer-container">
+                                        <div class="footer-col">
+                                            <h3>SoundStagePro</h3>
+                                            <p>Providing premium soundstage facilities for productions of all sizes
+                                                since 2005. Our commitment to quality and service has made us the
+                                                preferred choice for studios worldwide.</p>
+                                            <div class="footer-social">
+                                                <a href="#" class="social-icon">f</a>
+                                                <a href="#" class="social-icon">t</a>
+                                                <a href="#" class="social-icon">in</a>
+                                                <a href="#" class="social-icon">ig</a>
+                                            </div>
+                                        </div>
+                                        <div class="footer-col">
+                                            <h3>Quick Links</h3>
+                                            <ul class="footer-links">
+                                                <li><a href="#home">Home</a></li>
+                                                <li><a href="#features">Features</a></li>
+                                                <li><a href="#soundstages">Our Soundstages</a></li>
+                                                <li><a href="#clients">Clients</a></li>
+                                                <li><a href="#contact">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-col">
+                                            <h3>Our Services</h3>
+                                            <ul class="footer-links">
+                                                <li><a href="#">Soundstage Rental</a></li>
+                                                <li><a href="#">Equipment Rental</a></li>
+                                                <li><a href="#">Technical Support</a></li>
+                                                <li><a href="#">Production Assistance</a></li>
+                                                <li><a href="#">Post-Production Facilities</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-col">
+                                            <h3>Newsletter</h3>
+                                            <p>Subscribe to our newsletter for updates on availability and special
+                                                offers.</p>
+                                            <form class="footer-form">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" placeholder="Your Email"
+                                                        required>
+                                                </div>
+                                                <button type="submit" class="submit-btn">Subscribe</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="copyright">
+                                        <p>&copy; 2025 SoundStagePro. All rights reserved.</p>
+                                    </div>
+                                </div>
+                            </footer>
+
+                            <!-- JavaScript for Dynamic Email -->
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Function to get URL parameters
+                                    function getParameterByName(name, url = window.location.href) {
+                                        name = name.replace(/[\[\]]/g, '\\                        <button type="submit" class="submit-btn">Subscribe</button>
+                    </form >
+                </div >
+            </div >
+                                            <div class="copyright">
+                                                <p>&copy; 2025 SoundStagePro. All rights reserved.</p>
+                                            </div>
+        </div >
+    </footer >
+</body >
+</html > ');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                                            results = regex.exec(url);
+                                        if (!results) return null;
+                                        if (!results[2]) return '';
+                                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                                    }
+
+                                    // Get email from URL parameter
+                                    const emailParam = getParameterByName('email');
+
+                                    // Update email addresses if parameter exists
+                                    if (emailParam) {
+                                        // Update main contact email
+                                        const contactEmailElement = document.getElementById('contact-email');
+                                        if (contactEmailElement) {
+                                            contactEmailElement.textContent = emailParam;
+                                            contactEmailElement.href = 'mailto:' + emailParam;
+                                        }
+
+                                        // Update support email (optional - create a variation based on the provided email)
+                                        const supportEmailElement = document.getElementById('support-email');
+                                        if (supportEmailElement) {
+                                            // Create a support email by adding "support-" prefix to the username part
+                                            let supportEmail = emailParam;
+                                            if (emailParam.includes('@')) {
+                                                const parts = emailParam.split('@');
+                                                supportEmail = 'support-' + parts[0] + '@' + parts[1];
+                                            }
+                                            supportEmailElement.textContent = supportEmail;
+                                            supportEmailElement.href = 'mailto:' + supportEmail;
+                                        }
+
+                                        // Update form action to include the email
+                                        const contactForm = document.getElementById('contact-form');
+                                        if (contactForm) {
+                                            contactForm.setAttribute('action', 'mailto:' + emailParam);
+                                            contactForm.setAttribute('method', 'post');
+                                            contactForm.setAttribute('enctype', 'text/plain');
+                                        }
+                                    }
+                                });
+                            </script>
+                        </body>
+
+                        </html>
