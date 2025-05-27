@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biscayne Bay Studios - Miami's Tropical Production Paradise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #06b6d4;
+            --secondary-color: #0891b2;
+            --accent-color: #ec4899;
+            --dark-bg: #0f172a;
+            --light-bg: #f0fdfa;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: calc(100vh - 70px);
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q30,20 50,50 T90,50" stroke="white" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
+            background-size: 100px 100px;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        h2 span {
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* Features */
+        .features {
+            background: var(--light-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Stages */
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .stage-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .stage-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stage-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50%, -50%); }
+        }
+
+        .stage-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stage-specs {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stage-specs li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stage-specs li:before {
+            content: "🌴";
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light-bg);
+        }
+
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--dark-bg), #1e293b);
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Biscayne Bay Studios</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#stages">Stages</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Miami's <span>Tropical</span> Production Paradise</h1>
+            <p>Where art meets ocean breeze</p>
+            <a href="#contact" class="cta-button">Start Your Production</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="features">
+        <div class="container">
+            <h2>Why <span>Biscayne Bay</span> Studios</h2>
+            <p class="section-subtitle">Miami's most innovative production facility</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌊</div>
+                    <h3>Waterfront Location</h3>
+                    <p>Direct bay access for marine shoots, yacht scenes, and stunning water backdrops.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3>365 Days of Sunshine</h3>
+                    <p>Consistent natural lighting and perfect weather conditions year-round.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Art Deco Architecture</h3>
+                    <p>Unique Miami aesthetic with colorful backdrops and iconic architectural styles.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌴</div>
+                    <h3>Tropical Gardens</h3>
+                    <p>5-acre landscaped grounds perfect for outdoor scenes and natural settings.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>International Gateway</h3>
+                    <p>Easy access to Latin American talent and crew, bilingual support staff.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏖️</div>
+                    <h3>Beach Access</h3>
+                    <p>Private beach area for controlled shoots without public interference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stages -->
+    <section id="stages" class="stages">
+        <div class="container">
+            <h2>Our <span>Signature</span> Stages</h2>
+            <p class="section-subtitle">Designed for the Miami production lifestyle</p>
+            
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <h3>The Ocean Stage</h3>
+                    <ul class="stage-specs">
+                        <li>22,000 sq ft with water tank</li>
+                        <li>Retractable roof for natural light</li>
+                        <li>Climate controlled environment</li>
+                        <li>Marina dock access</li>
+                        <li>Underwater filming capability</li>
+                    </ul>
+                </div>
+                
+                <div class="stage-card">
+                    <h3>The Sunset Stage</h3>
+                    <ul class="stage-specs">
+                        <li>16,000 sq ft open floor</li>
+                        <li>West-facing glass walls</li>
+                        <li>LED volume ready</li>
+                        <li>Rooftop helipad</li>
+                        <li>VIP green rooms</li>
+                    </ul>
+                </div>
+                
+                <div class="stage-card">
+                    <h3>The Breeze Stage</h3>
+                    <ul class="stage-specs">
+                        <li>9,000 sq ft boutique space</li>
+                        <li>Natural wind effects</li>
+                        <li>360° cyc wall</li>
+                        <li>Beach sand floor option</li>
+                        <li>Tiki bar craft services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What <span>Productions</span> Say</h2>
+            <p class="section-subtitle">From music videos to blockbusters</p>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Biscayne Bay Studios gave our music video the Miami magic we needed. The waterfront location and natural lighting were absolutely perfect."</p>
+                    <p class="testimonial-author">- Carlos Rodriguez, Music Video Director</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The retractable roof feature saved us thousands in lighting costs. Plus, the beach access meant we could shoot sunrise to sunset seamlessly."</p>
+                    <p class="testimonial-author">- Amanda Chen, Commercial Producer</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Miami's vibrant culture combined with these world-class facilities made our streaming series authentically Miami. The bilingual crew was a huge plus."</p>
+                    <p class="testimonial-author">- Diego Martinez, Showrunner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Book Your <span>Miami</span> Production</h2>
+            <p class="section-subtitle">Let's create magic by the bay</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">🏝️</div>
+                    <h3>Location</h3>
+                    <p>789 Biscayne Boulevard<br>
+                    Miami, FL 33132<br>
+                    Waterfront District</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:amol+27may2025_3@showrunnr.com">amol+27may2025_3@showrunnr.com</a><br>
+                    Bilingual support available<br>
+                    Same-day response</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🌅</div>
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 7am - 10pm<br>
+                    Saturday - Sunday: 8am - 8pm<br>
+                    24/7 for active productions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Biscayne Bay Studios Miami | <a href="mailto:amol+27may2025_3@showrunnr.com">amol+27may2025_3@showrunnr.com</a> | Florida Film Incentives Available</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Tropical animation
+        function createTropicalParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.fontSize = '20px';
+            particle.innerHTML = ['🌺', '🦩', '🌴', '🥥'][Math.floor(Math.random() * 4)];
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '-50px';
+            particle.style.zIndex = 999;
+            particle.style.pointerEvents = 'none';
+            document.body.appendChild(particle);
+
+            let pos = -50;
+            const fall = setInterval(() => {
+                pos += 2;
+                particle.style.top = pos + 'px';
+                particle.style.transform = `translateX(${Math.sin(pos/50) * 20}px) rotate(${pos}deg)`;
+                
+                if (pos > window.innerHeight) {
+                    clearInterval(fall);
+                    particle.remove();
+                }
+            }, 20);
+        }
+
+        // Create particle every 3 seconds
+        setInterval(createTropicalParticle, 3000);
+    </script>
+</body>
+</html>

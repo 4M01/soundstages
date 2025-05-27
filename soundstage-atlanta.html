@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peachtree Productions - Atlanta's Premier Soundstage Facility</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #f97316;
+            --secondary-color: #ea580c;
+            --dark-bg: #1f2937;
+            --light-gray: #f3f4f6;
+            --text-dark: #111827;
+            --text-light: #6b7280;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:before {
+            content: "🍑";
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-2deg);
+            transform-origin: bottom left;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: white;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        /* Features */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Stages */
+        .stages {
+            background: var(--light-gray);
+        }
+
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .stage-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stage-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stage-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stage-specs {
+            padding: 2rem;
+        }
+
+        .stage-specs li {
+            list-style: none;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stage-specs li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .testimonial-card:before {
+            content: """;
+            font-size: 4rem;
+            color: var(--primary-color);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Peachtree Productions</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#stages">Stages</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Atlanta's Film Industry Hub</h1>
+            <p>Where Southern hospitality meets Hollywood excellence</p>
+            <a href="#contact" class="cta-button">Book Your Production</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="features">
+        <div class="container">
+            <h2>The Peachtree Advantage</h2>
+            <p class="section-subtitle">Why Atlanta's biggest productions choose us</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Georgia Film Tax Credits</h3>
+                    <p>Maximize your budget with Georgia's 30% tax incentive program. We handle all the paperwork.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <h3>40-Acre Campus</h3>
+                    <p>Sprawling facility with multiple stages, backlots, and natural settings all in one location.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✈️</div>
+                    <h3>Airport Adjacent</h3>
+                    <p>Just 15 minutes from Hartsfield-Jackson, making talent and equipment transport seamless.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏛️</div>
+                    <h3>Historic & Modern</h3>
+                    <p>From antebellum architecture to futuristic sets, Atlanta offers every backdrop imaginable.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Deep Crew Pool</h3>
+                    <p>Access to experienced local crews who've worked on Marvel, Netflix, and HBO productions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍑</div>
+                    <h3>Southern Comfort</h3>
+                    <p>Full-service hospitality including catering, accommodations, and concierge services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stages -->
+    <section id="stages" class="stages">
+        <div class="container">
+            <h2>World-Class Soundstages</h2>
+            <p class="section-subtitle">Purpose-built for blockbuster productions</p>
+            
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <div class="stage-header">
+                        <h3>The Magnolia Stage</h3>
+                        <p>Our flagship facility</p>
+                    </div>
+                    <div class="stage-specs">
+                        <ul>
+                            <li>30,000 sq ft clear span</li>
+                            <li>50 ft ceiling height</li>
+                            <li>Water tank capabilities</li>
+                            <li>Virtual production ready</li>
+                            <li>Dedicated mill space</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stage-card">
+                    <div class="stage-header">
+                        <h3>The Dogwood Stage</h3>
+                        <p>Perfect for series production</p>
+                    </div>
+                    <div class="stage-specs">
+                        <ul>
+                            <li>20,000 sq ft floor space</li>
+                            <li>35 ft ceiling height</li>
+                            <li>Permanent green screen</li>
+                            <li>Attached offices</li>
+                            <li>Private parking lot</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stage-card">
+                    <div class="stage-header">
+                        <h3>The Azalea Stage</h3>
+                        <p>Intimate production space</p>
+                    </div>
+                    <div class="stage-specs">
+                        <ul>
+                            <li>10,000 sq ft floor space</li>
+                            <li>25 ft ceiling height</li>
+                            <li>Natural light options</li>
+                            <li>Sound mixing suite</li>
+                            <li>Green room included</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Productions Love Peachtree</h2>
+            <p class="section-subtitle">See why we're Atlanta's #1 choice</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Peachtree Productions made our Marvel series possible. The facilities rival anything in Hollywood, but with Southern charm and efficiency."</p>
+                    <p class="testimonial-author">- Kevin Thompson, Marvel Studios</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The tax incentives combined with Peachtree's world-class facilities made Atlanta the obvious choice for our streaming series."</p>
+                    <p class="testimonial-author">- Lisa Park, Netflix Production Executive</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"From indie films to blockbusters, Peachtree's team adapts to any production size. They're why we keep coming back to Atlanta."</p>
+                    <p class="testimonial-author">- James Mitchell, Independent Producer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Start Your Atlanta Production</h2>
+            <p class="section-subtitle">Let's create something amazing in the Hollywood of the South</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>4567 Peachtree Industrial Blvd<br>
+                    Atlanta, GA 30341<br>
+                    Near I-285 & I-85</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:amol+27may2025_2@showrunnr.com">amol+27may2025_2@showrunnr.com</a><br>
+                    Tax credit consultation included<br>
+                    Response within 12 hours</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 7am - 9pm<br>
+                    Saturday - Sunday: 8am - 6pm<br>
+                    24/7 Production Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Peachtree Productions Atlanta | <a href="mailto:amol+27may2025_2@showrunnr.com">amol+27may2025_2@showrunnr.com</a> | Georgia Film Tax Credits Available</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
+                        

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manhattan Studios - Premier NYC Soundstage Rentals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #dc2626;
+            --secondary-color: #991b1b;
+            --dark-bg: #18181b;
+            --light-gray: #fafafa;
+            --text-dark: #27272a;
+            --text-light: #71717a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(24, 24, 27, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23dc2626" width="1200" height="800"/><g fill-opacity="0.1"><rect fill="%23ffffff" width="100" height="100" x="50" y="50"/><rect fill="%23ffffff" width="100" height="100" x="250" y="150"/><rect fill="%23ffffff" width="100" height="100" x="450" y="50"/></g></svg>');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* Features */
+        .features {
+            background: var(--light-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Stages */
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .stage-card {
+            border: 2px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stage-card:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        .stage-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stage-details {
+            padding: 2rem;
+        }
+
+        .stage-details ul {
+            list-style: none;
+        }
+
+        .stage-details li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light-gray);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Manhattan Studios</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#stages">Stages</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Manhattan's Premier Soundstages</h1>
+            <p>Where Broadway meets Hollywood in the heart of NYC</p>
+            <a href="#contact" class="cta-button">Reserve Your Stage</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="features">
+        <div class="container">
+            <h2>Why Manhattan Studios</h2>
+            <p class="section-subtitle">New York's most trusted production facility</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏙️</div>
+                    <h3>Prime Manhattan Location</h3>
+                    <p>Located in Chelsea with easy access to all major NYC neighborhoods and transportation hubs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎪</div>
+                    <h3>Broadway-Quality Acoustics</h3>
+                    <p>Designed by theater acoustic specialists for perfect sound isolation and clarity.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Flexible Configurations</h3>
+                    <p>Modular spaces that transform from intimate sets to grand production stages.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌆</div>
+                    <h3>NYC Skyline Views</h3>
+                    <p>Rooftop access for exterior shots with iconic Manhattan backdrop.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚇</div>
+                    <h3>Subway Accessible</h3>
+                    <p>Direct access from multiple subway lines makes crew call times easy.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍎</div>
+                    <h3>Local Vendor Network</h3>
+                    <p>Established relationships with NYC's best equipment and catering providers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stages -->
+    <section id="stages" class="stages">
+        <div class="container">
+            <h2>Our NYC Soundstages</h2>
+            <p class="section-subtitle">Three unique spaces in the heart of Manhattan</p>
+            
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <div class="stage-header">
+                        <h3>The Broadway Stage</h3>
+                    </div>
+                    <div class="stage-details">
+                        <ul>
+                            <li>📐 18,000 sq ft</li>
+                            <li>📏 40 ft ceiling height</li>
+                            <li>🎭 Theater-style rigging</li>
+                            <li>🎬 4K/8K infrastructure</li>
+                            <li>🚛 Street-level loading</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stage-card">
+                    <div class="stage-header">
+                        <h3>The Chelsea Stage</h3>
+                    </div>
+                    <div class="stage-details">
+                        <ul>
+                            <li>📐 12,000 sq ft</li>
+                            <li>📏 30 ft ceiling height</li>
+                            <li>💚 Pre-lit green screen</li>
+                            <li>🎥 Control room included</li>
+                            <li>☕ Craft services kitchen</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stage-card">
+                    <div class="stage-header">
+                        <h3>The Penthouse Stage</h3>
+                    </div>
+                    <div class="stage-details">
+                        <ul>
+                            <li>📐 6,000 sq ft</li>
+                            <li>📏 20 ft ceiling height</li>
+                            <li>🌃 Natural NYC light</li>
+                            <li>🏙️ Skyline views</li>
+                            <li>🎨 White cyc included</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Production Testimonials</h2>
+            <p class="section-subtitle">What NYC's top producers say about us</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Manhattan Studios saved our production. When we lost our original location, they accommodated us within 24 hours. True NYC professionals."</p>
+                    <p class="testimonial-author">- Rachel Green, HBO Series Producer</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The acoustics rival any Broadway theater. We recorded our entire cast album here and couldn't be happier with the results."</p>
+                    <p class="testimonial-author">- David Lin, Broadway Music Director</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"From SNL sketches to feature films, Manhattan Studios has been our go-to for 5 years. The location and facilities are unmatched."</p>
+                    <p class="testimonial-author">- Maria Santos, Production Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Book Your NYC Stage</h2>
+            <p class="section-subtitle">Let's create something amazing together</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>123 West 28th Street<br>
+                    New York, NY 10001<br>
+                    Chelsea, Manhattan</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:amol+27may2025_1@showrunnr.com">amol+27may2025_1@showrunnr.com</a><br>
+                    Quick response guaranteed<br>
+                    Available 24/7</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>🕐 Hours</h3>
+                    <p>Monday - Friday: 6am - 11pm<br>
+                    Saturday - Sunday: 7am - 10pm<br>
+                    24/7 During Productions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Manhattan Studios NYC | <a href="mailto:amol+27may2025_1@showrunnr.com" style="color: var(--primary-color);">amol+27may2025_1@showrunnr.com</a></p>
+    </footer>
+
+    <script>
+        // Smooth navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(24, 24, 27, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
